@@ -10,12 +10,49 @@ This project converts amino acid sequences into molecular graphs (atoms = nodes,
 
 ## Table of Contents
 
-1. [Model Architecture Diagram](#architecture-diagram)
-2. [Results](#results)
-3. [Coding Practices](#coding-practices)
-4. [Libraries Used](#libraries-used)
-5. [Quickstart](#quickstart)
-6. [HPC/SLURM Notes](#hpc--slurm-notes)
+1. [My Internship Experience](#my-internship-experience)
+2. [Model Architecture Diagram](#architecture-diagram)
+3. [Results](#results)
+4. [Coding Practices](#coding-practices)
+5. [Libraries Used](#libraries-used)
+6. [Quickstart](#quickstart)
+7. [HPC/SLURM Notes](#hpc--slurm-notes)
+
+---
+
+## My Internship Experience
+
+### Internship: South Australian Immunogenomics Cancer Institute (SAiGENCI)
+
+**Project:** Graph-based deep learning to classify short peptides as antimicrobial (AMP) or non-antimicrobial.
+
+### Process
+
+1. **Literature review:** Read research papers on current approaches. Held regular meetings with my supervisor throughout.
+2. **Tool exploration:** Studied the lab's in-house tools (structure, usage, how they approach similar problems) and related computational biology tools such as Google DeepMind's AlphaFold.
+3. **CNN baseline work:** Learned how transformers and attention work. Implemented a CNN on a protein dataset from my supervisor, then tuned hyperparameters and loss functions. Learned to evaluate with AUC-ROC and to benchmark new models against prior work.
+4. **Graph neural networks:** Experimented with GCN, GIN and TransformerConv. Used AI-assisted coding for the first time, while keeping a full understanding of the codebase. Wrote SLURM scripts to run jobs on the lab's HPC GPUs.
+5. **Building the graph models:**
+   - Converted highly imbalanced peptide sequences into **SMILES** strings (text notation for molecular structure), then into molecular graphs with **RDKit**.
+   - Used 33 node features, one-hot encoded: atomic symbol, degree, attached hydrogens, chirality and others.
+   - Added global descriptors (molecular weight, logP) to give broader structural context.
+   - Trained with **BCE with logits loss**, using `pos_weight` (Non-AMP : AMP ratio) to handle class imbalance.
+   - Used **JK (Jumping Knowledge) Readout**, which combines node representations from several GNN layers instead of only the last one. This keeps both local and wider structural information and reduces over-smoothing.
+
+### Result
+
+My models did not beat the baseline, **AMPLiT** (a multi-head attention model trained only on AMP amino-acid sequences). The main reasons were limited time alongside academic commitments, and limited domain knowledge and research experience.
+
+### Key learnings
+
+- Reading papers and benchmarking against baselines
+- Working with imbalanced data and choosing evaluation metrics
+- Molecular graph construction with RDKit
+- GNN architectures (GCN, GIN, TransformerConv, JK readout)
+- Running GPU jobs on an HPC cluster with SLURM
+- Using AI coding tools without losing understanding of the code
+
+**Tech:** Python, PyTorch, PyTorch Geometric, RDKit, SLURM
 
 ---
 
