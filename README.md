@@ -1,5 +1,9 @@
 # What I did in my internship at SAiGENCI? - AMP Prediction with Graph Neural Networks
 
+Here are the details about my internship at the South Australian immunoGENomics Cancer Institute.
+
+## My Experience
+
 Antimicrobial peptides are short proteins with natural antibiotic properties and are a promising alternative to conventional antibiotics as drug-resistant pathogens become more prevalent. Identifying new AMPs through wet-lab experiments is slow and expensive; computational classifiers can pre-screen large candidate libraries before synthesis.
 
 This project converts amino acid sequences into molecular graphs (atoms = nodes, bonds = edges) using RDKit and trains three GNN architectures to perform binary classification: AMP or Non-AMP. The dataset is imbalanced (~5:1 Non-AMP:AMP), so **PR-AUC** (Precision-Recall AUC) and **Balanced Accuracy** are the primary evaluation metrics.
@@ -38,7 +42,7 @@ This section outlines the engineering standards, collaboration protocols, and se
 
 ### General Guidelines
 
-* For the full directory structure, data flow diagram, model design decisions, and config reference, see [ARCHITECTURE.md](ARCHITECTURE.md).
+* For the full directory structure, data flow diagram, model design decisions, and config reference, see [ARCHITECTURE.md - Is not included in this repo].
 * **Modular & Extensible Architecture:** The codebase is strictly decoupled into independent modules (e.g., data pipelines, model architectures, training configurations, and evaluation metrics). This high degree of modularity ensures that the system is highly extensible, allowing team members to effortlessly isolate variables, test new deep learning/machine learning architectures, and experiment with novel hyperparameters without introducing regressions into production-ready pipelines.
 * **Industry-Standard Code Style:** To ensure seamless onboarding and readability for cross-functional engineering teams, all code adheres strictly to the **Google Style Guides** (including the Google Python Style Guide) and standard naming conventions (PascalCase for classes, snake_case for variables/functions, and UPPER_CASE for constants).
 * **Static Analysis & Linting:** Code formatting and quality are maintained using automated linters and formatters aligned with Google’s strict readability requirements to guarantee consistent syntax and structure across the entire repository.
