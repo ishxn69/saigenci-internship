@@ -1,4 +1,4 @@
-# What I did in my internship at SAiGENCI? - AMP Prediction with Graph Neural Networks
+# What I did in my internship at SAiGENCI - AMP Prediction with Graph Neural Networks
 
 Here are the details about my internship at the South Australian immunoGENomics Cancer Institute.
 
